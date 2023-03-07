@@ -1,32 +1,14 @@
 /*
   This method calculates the remaining power
 */
-const gManPower = function (
-  srcXAxis,
-  destXAxis,
-  srcYAxis,
-  destYAxis,
-  initDir
-) {
+const gManPower = function (srcXAxis,destXAxis,srcYAxis,destYAxis,initDir) {
 
   // if source and destination is in same axis this method will be called
   if (srcXAxis == destXAxis || srcYAxis == destYAxis) {
-    return sameAxis(
-      srcXAxis,
-      destXAxis,
-      srcYAxis,
-      destYAxis,
-      initDir
-    );
+    return sameAxis(srcXAxis,destXAxis,srcYAxis,destYAxis,initDir);
   } else {
     // if source and destination is in different axis this method will be called
-    return differentAxis(
-      srcXAxis,
-      destXAxis,
-      srcYAxis,
-      destYAxis,
-      initDir
-    );
+    return differentAxis(srcXAxis,destXAxis,srcYAxis,destYAxis,initDir);
   }
 };
 
@@ -34,29 +16,13 @@ const gManPower = function (
 if source and destination is in same axis this method will calculate the 
 shortest distance and the remaing power
  */
-function sameAxis(
-  srcXAxis,
-  destXAxis,
-  srcYAxis,
-  destYAxis,
-  initDir
-) {
+function sameAxis(srcXAxis,destXAxis,srcYAxis,destYAxis,initDir) {
   const one90DegreeMove = 5;
   const totalPower = 200;
   let rqdDir = "";
-  let inBetweenCells = inBetweenCellsLength(
-    srcXAxis,
-    destXAxis,
-    srcYAxis,
-    destYAxis
-  );
+  let inBetweenCells = inBetweenCellsLength(srcXAxis,destXAxis,srcYAxis,destYAxis);
 
-  rqdDir = rqdDirFinder(
-    srcXAxis,
-    destXAxis,
-    srcYAxis,
-    destYAxis
-  );
+  rqdDir = rqdDirFinder(srcXAxis,destXAxis,srcYAxis,destYAxis);
 
   // calculating the turn power required
   let turnPower = 0;
@@ -85,28 +51,13 @@ function sameAxis(
 if source and destination is in different axis this method will calculate 
 the shortest distance and the remaing power
  */
-function differentAxis(
-  srcXAxis,
-  destXAxis,
-  srcYAxis,
-  destYAxis,
-  initDir
+function differentAxis(srcXAxis,destXAxis,srcYAxis,destYAxis,initDir
 ) {
   const totalPower = 200;
   const one90DegreeMove = 5;
-  let inBetweenCells = inBetweenCellsLength(
-    srcXAxis,
-    destXAxis,
-    srcYAxis,
-    destYAxis
-  );
+  let inBetweenCells = inBetweenCellsLength(srcXAxis,destXAxis,srcYAxis,destYAxis);
 
-  let { option1, option2 } = directionOptions(
-    srcXAxis,
-    destXAxis,
-    srcYAxis,
-    destYAxis
-  );
+  let { option1, option2 } = directionOptions(srcXAxis,destXAxis,srcYAxis,destYAxis);
 
   // calculating the remaining power
   let remainingPower = 0;
@@ -124,11 +75,7 @@ function differentAxis(
 this method computes the inbetween length between source and destination 
 excluding the turning energy spent
 */
-function inBetweenCellsLength(
-  srcXAxis,
-  destXAxis,
-  srcYAxis,
-  destYAxis
+function inBetweenCellsLength(srcXAxis,destXAxis,srcYAxis,destYAxis
 ) {
   const costOfTravellingPerCell = 10;
   let dist =
@@ -143,12 +90,7 @@ if the source and destination in same axis we need to find the the direction in 
 have to start to react the destination this method derives the direction in 
 which the source ahve to start
 */
-function rqdDirFinder(
-  srcXAxis,
-  destXAxis,
-  srcYAxis,
-  destYAxis
-) {
+function rqdDirFinder(srcXAxis,destXAxis,srcYAxis,destYAxis) {
   let rqdDir = "";
   if (srcXAxis == destXAxis) {
     if (srcYAxis - destYAxis > 0) {
@@ -171,12 +113,7 @@ function rqdDirFinder(
 if the source and destination in different axis the source may have two direction in which the source can
 start to react the destination, this method computes the two possible directions the source can start
  */
-function directionOptions(
-  srcXAxis,
-  destXAxis,
-  srcYAxis,
-  destYAxis
-) {
+function directionOptions(srcXAxis,destXAxis,srcYAxis,destYAxis) {
   if (destYAxis > srcYAxis) {
     option1 = "N";
   } else if (destYAxis < srcYAxis) {
@@ -196,11 +133,4 @@ function directionOptions(
 }
 
 
-module.exports = {
-  inBetweenCellsLength,
-  rqdDirFinder,
-  directionOptions,
-  sameAxis,
-  differentAxis,
-  gManPower,
-};
+module.exports = {inBetweenCellsLength,rqdDirFinder,directionOptions,sameAxis,differentAxis,gManPower,};
