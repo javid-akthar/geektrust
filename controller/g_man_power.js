@@ -20,30 +20,22 @@ function sameAxis(srcXAxis,destXAxis,srcYAxis,destYAxis,initDir) {
   const one90DegreeMove = 5;
   const totalPower = 200;
   let rqdDir = "";
-  let inBetweenCells = inBetweenCellsLength(srcXAxis,destXAxis,srcYAxis,destYAxis);
-
-  rqdDir = rqdDirFinder(srcXAxis,destXAxis,srcYAxis,destYAxis);
-
-  // calculating the turn power required
   let turnPower = 0;
+  let inBetweenCells = inBetweenCellsLength(srcXAxis,destXAxis,srcYAxis,destYAxis);
+  rqdDir = rqdDirFinder(srcXAxis,destXAxis,srcYAxis,destYAxis);
+  // calculating the turn power required
   if (rqdDir == initDir) {
     turnPower = 0;
-  } else if (
-    (rqdDir == "E" && initDir == "W") ||
-    (rqdDir == "W" && initDir == "E") ||
-    (rqdDir == "N" && initDir == "S") ||
-    (rqdDir == "S" && initDir == "N")
-  ) {
+  } else if ((rqdDir == "E" && initDir == "W") ||(rqdDir == "W" && initDir == "E") ||
+    (rqdDir == "N" && initDir == "S") ||(rqdDir == "S" && initDir == "N")) {
     // in this case we will take two moves to turnPower becomes 10;
     turnPower = one90DegreeMove*2;
   } else {
     // in this case we will take two moves to turnPower becomes 5;
     turnPower = one90DegreeMove;
   }
-
   // calculating the remaining power
   let remainingPower = totalPower - (turnPower + inBetweenCells);
-
   return remainingPower;
 }
 
@@ -55,18 +47,15 @@ function differentAxis(srcXAxis,destXAxis,srcYAxis,destYAxis,initDir
 ) {
   const totalPower = 200;
   const one90DegreeMove = 5;
-  let inBetweenCells = inBetweenCellsLength(srcXAxis,destXAxis,srcYAxis,destYAxis);
-
-  let { option1, option2 } = directionOptions(srcXAxis,destXAxis,srcYAxis,destYAxis);
-
-  // calculating the remaining power
   let remainingPower = 0;
+  let inBetweenCells = inBetweenCellsLength(srcXAxis,destXAxis,srcYAxis,destYAxis);
+  let { option1, option2 } = directionOptions(srcXAxis,destXAxis,srcYAxis,destYAxis);
+  // calculating the remaining power
   if (initDir == option1 || initDir == option2) {
     remainingPower = totalPower - (inBetweenCells + one90DegreeMove);
   } else {
     remainingPower = totalPower - (inBetweenCells + (2*one90DegreeMove));
   }
-
   return remainingPower;
 }
 
@@ -105,7 +94,6 @@ function rqdDirFinder(srcXAxis,destXAxis,srcYAxis,destYAxis) {
       rqdDir = "E";
     }
   }
-
   return rqdDir;
 }
 
@@ -126,10 +114,7 @@ function directionOptions(srcXAxis,destXAxis,srcYAxis,destYAxis) {
     option2 = "W";
   }
 
-  return {
-    option1,
-    option2,
-  };
+  return { option1,option2,};
 }
 
 

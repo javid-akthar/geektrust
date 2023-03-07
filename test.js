@@ -11,7 +11,7 @@ let {
   sameAxis,
   differentAxis,
   gManPower,
-} = require("./g_man_power");
+} = require("./controller/g_man_power");
 console.log(gManPower);
 console.log(inBetweenCellsLength);
 
