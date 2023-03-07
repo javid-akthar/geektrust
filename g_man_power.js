@@ -1,5 +1,5 @@
 /*
-  This method calculates the 
+  This method calculates the remaining power
 */
 const gManPower = function (
   srcXCoordinate,
@@ -41,7 +41,8 @@ function sameAxis(
   destYCoordinate,
   initialDirection
 ) {
-
+  const one90DegreeMove = 5;
+  const totalPower = 200;
   let requiredDirection = "";
   let inBetweenCells = inBetweenCellsLength(
     srcXCoordinate,
@@ -67,13 +68,15 @@ function sameAxis(
     (requiredDirection == "N" && initialDirection == "S") ||
     (requiredDirection == "S" && initialDirection == "N")
   ) {
-    turnPower = 10;
+    // in this case we will take two moves to turnPower becomes 10;
+    turnPower = one90DegreeMove*2;
   } else {
-    turnPower = 5;
+    // in this case we will take two moves to turnPower becomes 5;
+    turnPower = one90DegreeMove;
   }
 
   // calculating the remaining power
-  let remainingPower = 200 - (turnPower + inBetweenCells);
+  let remainingPower = totalPower - (turnPower + inBetweenCells);
 
   return remainingPower;
 }
@@ -89,6 +92,8 @@ function differentAxis(
   destYCoordinate,
   initialDirection
 ) {
+  const totalPower = 200;
+  const one90DegreeMove = 5;
   let inBetweenCells = inBetweenCellsLength(
     srcXCoordinate,
     destXCoordinate,
@@ -96,7 +101,6 @@ function differentAxis(
     destYCoordinate
   );
 
-  inBetweenCells += 5;
   let { option1, option2 } = directionOptions(
     srcXCoordinate,
     destXCoordinate,
@@ -107,9 +111,9 @@ function differentAxis(
   // calculating the remaining power
   let remainingPower = 0;
   if (initialDirection == option1 || initialDirection == option2) {
-    remainingPower = 200 - inBetweenCells;
+    remainingPower = totalPower - (inBetweenCells + one90DegreeMove);
   } else {
-    remainingPower = 200 - (inBetweenCells + 5);
+    remainingPower = totalPower - (inBetweenCells + (2*one90DegreeMove));
   }
 
   return remainingPower;
@@ -126,10 +130,11 @@ function inBetweenCellsLength(
   srcYCoordinate,
   destYCoordinate
 ) {
+  const costOfTravellingPerCell = 10;
   let dist =
     (Math.abs(srcXCoordinate - destXCoordinate) +
       Math.abs(srcYCoordinate - destYCoordinate)) *
-    10;
+      costOfTravellingPerCell;
   return dist;
 }
 
