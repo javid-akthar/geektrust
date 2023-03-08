@@ -1,22 +1,21 @@
 module.exports.directionFinder = function (
-  srcXAxis,
-  destXAxis,
-  srcYAxis,
-  destYAxis
+  sourceXAxis,
+  destinationXAxis,
+  sourceYAxis,
+  destinationYAxis,
+  directionArr
 ) {
-  let rqdDir = "";
-  if (srcXAxis === destXAxis) {
-    if (srcYAxis - destYAxis > 0) {
-      rqdDir = "S";
-    } else if (srcYAxis - destYAxis < 0) {
-      rqdDir = "N";
+  if (sourceXAxis === destinationXAxis) {
+    if (sourceYAxis - destinationYAxis > 0) {
+      return directionArr[3];
+    } else if (sourceYAxis - destinationYAxis < 0) {
+      return directionArr[2];
     }
-  } else if (srcYAxis === destYAxis) {
-    if (srcXAxis - destXAxis > 0) {
-      rqdDir = "W";
-    } else if (srcXAxis - destXAxis < 0) {
-      rqdDir = "E";
+  } else if (sourceYAxis === destinationYAxis) {
+    if (sourceXAxis - destinationXAxis > 0) {
+      return directionArr[1];
+    } else if (sourceXAxis - destinationXAxis < 0) {
+      return directionArr[0];
     }
   }
-  return rqdDir;
 };

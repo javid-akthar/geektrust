@@ -1,8 +1,8 @@
-let { gManPower } = require("./gManPowerCal");
-function gManPowerFinder(inputArr) {
+let { remainingPower } = require("./remainingPower");
+function remainingPowerFinder(inputArr) {
   const nxtInp = 8;
   for (let i = 0; i < inputArr.length; ) {
-    power = gManPower(
+    power = remainingPower(
       inputArr[i + 1],
       inputArr[i + 5],
       inputArr[i + 2],
@@ -19,4 +19,4 @@ function gManPowerFinder(inputArr) {
   }
 }
 
-module.exports = { gManPowerFinder };
+module.exports = { remainingPowerFinder };

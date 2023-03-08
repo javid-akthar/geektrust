@@ -1,5 +1,5 @@
 const inBtwCells = [40, 100, 80, 20, 60, 60, 40, 40];
-const dirArr = ["E", "W", "N", "S"];
+const directionArray = ["E", "W", "N", "S"];
 const sameAxisVal = [180, 135, 160, 150];
 const diffAxisVal = [155, 90, 110, 130];
 const gManPwrVal = [155, 90, 110, 180, 130, 135, 160, 150];
@@ -16,4 +16,4 @@ const AxisArray = [
 const oneMove = 5;
 const totalPower = 200;
 
-module.exports = {inBtwCells, dirArr, sameAxisVal, diffAxisVal, gManPwrVal, AxisArray, oneMove, totalPower}
+module.exports = {inBtwCells, directionArray, sameAxisVal, diffAxisVal, gManPwrVal, AxisArray, oneMove, totalPower}

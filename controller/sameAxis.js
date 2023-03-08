@@ -2,14 +2,15 @@ const { turnPowerCal } = require("./turnPower");
 const { directionFinder } = require("./directionFinder");
 
 function sameAxis(
-  initDir,
+  initialDirection,
   inBetweenCells,
   oneMove,
   totalPower,
-  axisPointArr
+  axisPointArray,
+  directionArray
 ) {
-  let rqdDir = directionFinder(...axisPointArr);
-  turnPower = turnPowerCal(rqdDir, initDir, oneMove);
+  let requiredDirection = directionFinder(...axisPointArray,directionArray);
+  turnPower = turnPowerCal(requiredDirection, initialDirection, oneMove,directionArray);
   let remainingPower = totalPower - (turnPower + inBetweenCells);
   return remainingPower;
 }

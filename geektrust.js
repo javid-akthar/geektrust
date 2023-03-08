@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { gManPowerFinder } = require("./controller/gManPowerFinder");
+const { remainingPowerFinder } = require("./controller/remainingPowerFinder");
 let filename = "";
 try {
   filename = process.argv[2];
@@ -15,5 +15,5 @@ if (filename)
       item = item.trim();
       inputArr = inputArr.concat(item.split(" "));
     });
-    gManPowerFinder(inputArr);
+    remainingPowerFinder(inputArr);
   });

@@ -1,13 +1,13 @@
-function turnPowerCal(rqdDir, initDir, oneMove) {
+function turnPowerCal(requiredDirection, initialDirection, oneMove, directionArray) {
   let turnPower = 0;
   const twice = 2;
-  if (rqdDir === initDir) {
+  if (requiredDirection === initialDirection) {
     return turnPower;
   } else if (
-    (rqdDir === "E" && initDir === "W") ||
-    (rqdDir === "W" && initDir === "E") ||
-    (rqdDir === "N" && initDir === "S") ||
-    (rqdDir === "S" && initDir === "N")
+    (requiredDirection === directionArray[0] && initialDirection === directionArray[1]) ||
+    (requiredDirection === directionArray[1] && initialDirection === directionArray[0]) ||
+    (requiredDirection === directionArray[2] && initialDirection === directionArray[3]) ||
+    (requiredDirection === directionArray[3] && initialDirection === directionArray[2])
   ) {
     turnPower = oneMove * twice;
   } else {

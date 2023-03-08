@@ -1,19 +1,20 @@
 module.exports.directionOptions = function (
-  srcXAxis,
-  destXAxis,
-  srcYAxis,
-  destYAxis
+  sourceXAxis,
+  destinationXAxis,
+  sourceYAxis,
+  destinationYAxis,
+  directionArr
 ) {
-  if (destYAxis > srcYAxis) {
-    option1 = "N";
-  } else if (destYAxis < srcYAxis) {
-    option1 = "S";
+  if (destinationYAxis > sourceYAxis) {
+    option1 = directionArr[2];
+  } else if (destinationYAxis < sourceYAxis) {
+    option1 = directionArr[3];
   }
 
-  if (destXAxis > srcXAxis) {
-    option2 = "E";
+  if (destinationXAxis > sourceXAxis) {
+    option2 = directionArr[0];
   } else {
-    option2 = "W";
+    option2 = directionArr[1];
   }
 
   return { option1, option2 };

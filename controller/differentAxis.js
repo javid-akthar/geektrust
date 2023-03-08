@@ -1,16 +1,16 @@
-const { inBetweenCellsLength } = require("./powerCalUtil");
 const { directionOptions } = require("./directionOptions");
 
 function differentAxis(
-  initDir,
+  initialDirection,
   inBetweenCells,
   oneMove,
   totalPower,
-  axisPointArr
+  axisPointArray,
+  directionArray
 ) {
-  let { option1, option2 } = directionOptions(...axisPointArr);
+  let { option1, option2 } = directionOptions(...axisPointArray,directionArray);
   return remainingPowerCal(
-    initDir,
+    initialDirection,
     option1,
     option2,
     totalPower,
@@ -20,14 +20,14 @@ function differentAxis(
 }
 
 function remainingPowerCal(
-  initDir,
+  initialDirection,
   option1,
   option2,
   totalPower,
   inBetweenCells,
   oneMove
 ) {
-  if (initDir === option1 || initDir === option2) {
+  if (initialDirection === option1 || initialDirection === option2) {
     remainingPower = totalPower - (inBetweenCells + oneMove);
   } else {
     remainingPower = totalPower - (inBetweenCells + 2 * oneMove);
