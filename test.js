@@ -1,14 +1,14 @@
-const chai = require("chai");
+const chai = require('chai');
 const expect = chai.expect;
 const {Axis} = require('./models/axisClass');
 
-let { remainingPowerFinder,remainingPower } = require("./controller/remainingPowerFinder");
+let { remainingPowerFinder,remainingPower } = require('./controller/remainingPowerFinder');
 const {
   directionArray,
   gManPwrVal,
   AxisArray,
   inputArray
-} = require("./testingData");
+} = require('./testingData');
 
 describe("Test Suite", function () {
   it("Test the gManPower method", function () {

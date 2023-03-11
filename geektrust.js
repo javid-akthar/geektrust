@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require('fs');
 const { remainingPowerFinder } = require("./controller/remainingPowerFinder");
 let filename = "";
 try {

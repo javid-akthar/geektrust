@@ -1,4 +1,4 @@
-const directionArray = ["E", "W", "N", "S"];
+const directionArray = ['E', 'W', 'N', 'S'];
 const gManPwrVal = [155, 90, 110, 180, 130, 135, 160, 150, undefined];
 const AxisArray = [
   [2, 4, 1, 3],
@@ -8,7 +8,7 @@ const AxisArray = [
   [2, 4, 1, 5],
   [0, 6, 6, 6],
   [1, 5, 3, 3],
-  [5, 1, 3, 3]
+  [5, 1, 3, 3],
 ];
 const oneMove = 5;
 const totalPower = 200;

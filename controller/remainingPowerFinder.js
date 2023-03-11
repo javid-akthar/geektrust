@@ -1,5 +1,5 @@
-const { oneMove, totalPower, directionArray } = require("../testingData");
-const { Axis } = require("../models/axisClass");
+const { oneMove, totalPower, directionArray } = require('../testingData');
+const { Axis } = require('../models/axisClass');
 function remainingPowerFinder(inputArr) {
   const nxtInp = 8;
   for (let i = 0; i < inputArr.length; i = i + nxtInp) {
@@ -166,7 +166,7 @@ function turnPowerCal(
 }
 
 function turnPowerHelper(requiredDirection, initialDirection, directionArray) {
-  return(
+  return (
     (requiredDirection === directionArray[0] &&
       initialDirection === directionArray[1]) ||
     (requiredDirection === directionArray[1] &&
@@ -175,8 +175,7 @@ function turnPowerHelper(requiredDirection, initialDirection, directionArray) {
       initialDirection === directionArray[3]) ||
     (requiredDirection === directionArray[3] &&
       initialDirection === directionArray[2])
-  )
-  
+  );
 }
 
 module.exports = { remainingPowerFinder, remainingPower };
