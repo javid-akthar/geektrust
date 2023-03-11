@@ -1,8 +1,5 @@
-const inBtwCells = [40, 100, 80, 20, 60, 60, 40, 40];
 const directionArray = ["E", "W", "N", "S"];
-const sameAxisVal = [180, 135, 160, 150];
-const diffAxisVal = [155, 90, 110, 130];
-const gManPwrVal = [155, 90, 110, 180, 130, 135, 160, 150];
+const gManPwrVal = [155, 90, 110, 180, 130, 135, 160, 150, undefined];
 const AxisArray = [
   [2, 4, 1, 3],
   [0, 6, 5, 1],
@@ -15,5 +12,6 @@ const AxisArray = [
 ];
 const oneMove = 5;
 const totalPower = 200;
+const inputArray = [ 'SOURCE', 2, 4, 'E', 'DESTINATION', 1, 3, 'PRINT_POWER' ]
 
-module.exports = {inBtwCells, directionArray, sameAxisVal, diffAxisVal, gManPwrVal, AxisArray, oneMove, totalPower}
+module.exports = {directionArray, gManPwrVal, AxisArray, oneMove, totalPower,inputArray}
